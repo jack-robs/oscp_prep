@@ -14,12 +14,14 @@
     </dict>
   </array>
   <key>expanded</key><true/>
-  <key>title</key><string>hacker-playbook3</string>
   <key>nodeid</key><string>ff22ab57-d8cf-498a-a747-29c6df61b3d3</string>
   <key>modified_time</key><integer>1558992030</integer>
+  <key>content_type</key><string>application/x-notebook-dir</string>
+  <key>created_time</key><integer>1558992030</integer>
+  <key>title</key><string>hacker-playbook3</string>
   <key>column_widths</key><dict>
     <key>created_time</key><integer>150</integer>
-    <key>modified_time</key><integer>450</integer>
+    <key>modified_time</key><integer>2370</integer>
     <key>title</key><integer>150</integer>
   </dict>
   <key>attr_defs</key><array>
@@ -115,8 +117,6 @@
     </dict>
   </array>
   <key>version</key><integer>6</integer>
-  <key>content_type</key><string>application/x-notebook-dir</string>
-  <key>created_time</key><integer>1558992030</integer>
   <key>order</key><integer>0</integer>
 </dict>
 </node>
