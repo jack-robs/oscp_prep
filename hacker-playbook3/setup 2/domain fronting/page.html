@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>domain fronting</title>
+</head><body><b>domain fronting: </b>techs to make use of other people's domains and infra as redirectors for c2<br/>
+<br/>
+<i><b>High reputation redirectors and domain fronting<br/>
+</b></i><a href="https://blog.cobaltstrike.com/2017/02/06/high-reputation-redirectors-and-domain-fronting/">https://blog.cobaltstrike.com/2017/02/06/high-reputation-redirectors-and-domain-fronting/</a><br/>
+-redirector: server that sits b/t c2 and target netwrorking<br/>
+-domain fronting: use other people's domains and infra s redirector<br/>
+<br/>
+basic example:<br/>
+-ec2, configure as redirector w/ socat<br/>
+-FQDN on ec2 = amazonaws.com subdomains<br/>
+-send payloads to this home, socat to ec2<br/>
+<br/>
+cooler example: high reputation domain you don't control, with cloudfront<br/>
+-CloudFront = content delivery network (CDN) service<br/>
+-globally distributed caches reduces client server load<br/>
+-cfn configuration = distribution<br/>
+-CF ID's distros by FQDN used to request resources <br/>
+-CF users have option to server CF cached objects via personal subdomain<br/>
+-tldr: changes host http header to point to redirect<br/>
+1) dns record that points to cloudfront<br/>
+2) tell CF to assocaited DNS record w/ distro<br/>
+3) configure payload to call home to benign host, send host header to attack distro<br/>
+ex: <a href="https://www.fireeye.com/blog/threat-research/2017/03/apt29_domain_frontin.html">https://www.fireeye.com/blog/threat-research/2017/03/apt29_domain_frontin.html</a><br/>
+<br/>
+-cobalt strike does this<br/>
+-meterpreter does this<br/>
+<br/>
+aws counter measures<br/>
+<a href="https://aws.amazon.com/blogs/security/enhanced-domain-protections-for-amazon-cloudfront-requests/">https://aws.amazon.com/blogs/security/enhanced-domain-protections-for-amazon-cloudfront-requests/</a><br/>
+<br/>
+</body></html>

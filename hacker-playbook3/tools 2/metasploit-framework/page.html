@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>metasploit-framework</title>
+</head><body>Metasploit framework: <br/>
+community version: https://github.com/rapid7/metasploit-framework/commuts/master<br/>
+<br/>
+MS17-010 Eternal Blue:<br/>
+https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/smb/ms17_010_eternalblue.rb<br/>
+<br/>
+<b>obfurscate meterpreter payload:<br/>
+</b># msfvenom --payload &lt;payload&gt; --format &lt;format&gt; --out &lt;output&gt;<br/>
+<br/>
+<b>msfvenon:<br/>
+</b><a href="https://www.offensive-security.com/metasploit-unleashed/msfvenom/">https://www.offensive-security.com/metasploit-unleashed/msfvenom/<br/>
+</a>"a metasploit standalone payload generator"<br/>
+<br/>
+-combination of msfpayload and msfencode into single framework <br/>
+-has a large variety of platform options cisco, osx, bsd, hardware, firefox, linux, java, etc.) # -platform <br/>
+<br/>
+-advantages<br/>
+1) single tool<br/>
+2) standardized CLI<br/>
+3) faster<br/>
+<br/>
+$ msfvenom -h<br/>
+&gt;help<br/>
+<br/>
+<b>meterpreter:<br/>
+</b>-advanced dynamically extensible payload that uses in-memory DLL injection stagers<br/>
+<br/>
+<i>how it works</i><br/>
+1) target executes the initial stager (bind, reverse, findtag, passivex, etc.)<br/>
+2) stager loads DL prefixed with Reflective<br/>
+-&gt;reflective stub: handels loading/injection of the DLL<br/>
+3) meterpreter core initialized/established a TLS/1.0 link over the socket, and sends a GET<br/>
+4) metasploit receives this GET, configures client<br/>
+5) meterpreter loads extensions. always loads stdapi, will load priv if modules gives admin<br/>
+-&gt;loaded over TLS/1.0 using TLV protocol <br/>
+<br/>
+<i>design goals<br/>
+</i>-stealthy: all in memory, writes nothing to disk, create no new processes (uses compromised processes), encrypted comms<br/>
+-powerful: channelized comms system, TLV protocl few limitations<br/>
+-extensible: featuers augment at runtime, loaded over network, new feature add w/o rebuild<br/>
+<br/>
+<b>use signed SSL/TLS certs by trusted authorities - dodge IDS tools:<br/>
+</b>meterpreter paranoid mode: implementment a paranoid payload and listener <br/>
+-./msfconsole or ./msfvenom<br/>
+<a href="https://github.com/rapid/metasploit-framework/wiki/Meterpreter-Paranoid-Mode">https://github.com/rapid/metasploit-framework/wiki/Meterpreter-Paranoid-Mode</a><br/>
+</body></html>

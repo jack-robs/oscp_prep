@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>malleable-c2</title>
+</head><body>layer 7 application filtering is become more common<br/>
+-layer 7: looking for anonymou traffic that many times is over web commes<br/>
+-what if: make c2 comms look like normal traffic<br/>
+<br/>
+= malleable c2<br/>
+common malleable c2s<br/>
+<a href="https://github.com/rsmudge/Malleable-C2-Profiles">https://github.com/rsmudge/Malleable-C2-Profiles</a><a href="https://github.com/rsmudge/Malleable-C2-Profiles/blob/master/normal/amazon.profile"><br/>
+</a><a href="https://github.com/rsmudge/Malleable-C2-Profiles/blob/master/normal/amazon.profile">https://github.com/rsmudge/Malleable-C2-Profiles/blob/master/normal/amazon.profile<br/>
+</a><br/>
+using malleable c2 safely:<br/>
+-modify all User-agent information<br/>
+-configure SSL with real cert<br/>
+-use jitter (vary latency in packet flow b/t 2 systems)<br/>
+-chang beacon times for agents<br/>
+-communcation: happen over POST http-post commands<br/>
+<br/>
+randomized malleable c2 profiles:<br/>
+<a href="https://github.com/bluscreenofjeff/Malleable-C2-Randomizer">https://github.com/bluscreenofjeff/Malleable-C2-Randomizer</a><br/>
+</body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>smb-beacons</title>
+</head><body>beacons/internal infrastructure:<br/>
+-don't want to build a campaign that can be taken out easily<br/>
+-assume some agents will be discovered by red team<br/>
+-if all hosts are talking to 1 or 2 c2 endpoints, pretty easy to take out entire infra<br/>
+-SMB Beacons b/t hosts for 2 comms<br/>
+-&gt;result:<br/>
+&#09;-one compromised machine comm to the internet<br/>
+&#09;-all other machines on on network comm through initial compromised host over smb<br/>
+&#09;-allows: if second systems are detected, might not be able to id c2 domain associated w/ attak<br/>
+https://www.cobaltstrike.com/help-smb-beacon<br/>
+&nbsp;<img src="image.png" /><br/>
+</body></html>

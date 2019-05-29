@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>redirectors</title>
+</head><body><i><a href="https://blog.cobaltstrike.com/2014/01/14/cloud-based-redirectors-for-distributed-hacking/">https://blog.cobaltstrike.com/2014/01/14/cloud-based-redirectors-for-distributed-hacking/</a><br/>
+Coud based redirectors for distributed hacking<br/>
+</i>-persistent attackers: distributed infra (not just 1 system to launch attacks)<br/>
+-register many domains, setup several systems as redirectors (pivot points) back to c2<br/>
+-redirectors: proxies all traffic to c2, needs basic iptables or socat, can use ec2 instances for them (a server)<i><br/>
+</i><a href="https://bluescreenofjeff.com/2018-04-12-https-payload-and-c2-redirectors/"><br/>
+<br/>
+<br/>
+</a><a href="https://bluescreenofjeff.com/2018-04-12-https-payload-and-c2-redirectors/">https://bluescreenofjeff.com/2018-04-12-https-payload-and-c2-redirectors/</a><br/>
+<i>HTTPS Payload and C2 Redirectors<br/>
+<br/>
+</i>-https c2 redirection tool <a href="https://github.com/threatexpress/cs2modrewrite">https://github.com/threatexpress/cs2modrewrite</a><br/>
+-redirectors (rdris) 2 categories<br/>
+<br/>
+<b>dumb pipe (iptabels, socat)</b><br/>
+1) <b>iptables</b><br/>
+NAT incoming traffic on certain port to remote host IP on given port<br/>
+ex: take TCP traffic over 443, redirect to remote backend server over p443<br/>
+###<br/>
+iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT<br/>
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination &lt;c2 IP&gt;:443<br/>
+iptables -t nat -A POSTROUTING -j MASQUERADE<br/>
+iptables -I FORWARD -j ACCEPT<br/>
+-iptables -P FORWARD<br/>
+sysctl net.ipv44.ip_forward=1<br/>
+###<br/>
+2) <b>socat<br/>
+</b>-easy 1 liner, but iptable can handle more throughput <br/>
+-traffic redirection<br/>
+ex: redirect traffic from 443 to remote IP at 443<br/>
+socat TCP4-LISTEN:443, fork TCP4:&lt;c2 ip&gt;:443<br/>
+<br/>
+<b>filtering redirection (ex: apache mod_rewrite)<br/>
+</b>-filtering redirectors provide virtually endless methods to hamper investigation of attack infra<b><br/>
+</b>-c2 redirection and payload redirection are the two categories<br/>
+<i><br/>
+#setup<br/>
+</i>1) apache and ssl setup<br/>
+-enabe multiple apache modules, and enable ssl on the site (self-signed)<br/>
+2) genereate cert with letsencrypt <br/>
+<br/>
+#payload redirection<br/>
+-covers any file/payload that will be publicly hosted during socieng or other attack paths<br/>
+-redirector will proxy any valid requests to payload server, all other requests to 404 on target, ssl'd by c2<br/>
+<br/>
+#c2 redirection<br/>
+-similary to payload redirection, except htaccess file need to only allow c2, hosted file, and stage URIs<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>
